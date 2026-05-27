@@ -1,2 +1,0 @@
-# viknoprostir
-vova_site
