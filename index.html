@@ -34,7 +34,7 @@
       </button>
 
       <nav class="site-nav" id="site-nav" data-nav>
-        <a href="#products">Послуги</a>
+        <a href="#products">Асортимент</a>
         <a href="#benefits">Переваги</a>
         <a href="#process">Етапи</a>
         <a href="#contacts">Контакти</a>
@@ -45,7 +45,8 @@
       <section class="hero" aria-labelledby="hero-title">
         <img
           class="hero-image"
-          src="assets/hero-vikno-prostir3.jpg"
+          data-random-hero
+          src="assets/hero-vikno-prostir1.jpg"
           alt="Приклади дверей, вікон і жалюзі від Вікно простір"
         />
         <div class="hero-overlay"></div>
@@ -61,38 +62,24 @@
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.6a2 2 0 0 1-.45 2.11L8.09 9.64a16 16 0 0 0 6.27 6.27l1.21-1.2a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.6.63A2 2 0 0 1 22 16.92z" />
               </svg>
-              Замовити консультацію
+              Переглянути контакти
             </a>
             <a class="button button-secondary" href="#products">Переглянути асортимент</a>
           </div>
           <dl class="hero-stats" aria-label="Переваги магазину">
             <div>
-              <dt>10+</dt>
-              <dd>років досвіду</dd>
-            </div>
-            <div>
-              <dt>24 год</dt>
-              <dd>прорахунок</dd>
+              <dt>Асортимент</dt>
+              <dd>під різний бюджет</dd>
             </div>
             <div>
               <dt>Гарантія</dt>
-              <dd>на вироби й монтаж</dd>
+              <dd>на вироби</dd>
+            </div>
+            <div>
+              <dt>10+</dt>
+              <dd>років досвіду</dd>
             </div>
           </dl>
-        </div>
-      </section>
-
-      <section class="section intro" aria-label="Про магазин">
-        <div class="section-inner intro-grid">
-          <div>
-            <p class="section-kicker">Магазин для дому та бізнесу</p>
-            <h2>Підбираємо рішення, які виглядають охайно і працюють щодня.</h2>
-          </div>
-          <p>
-            «Вікно простір» консультує, виготовляє та встановлює металопластикові
-            конструкції, сонцезахисні системи й захисні ролети. Працюємо з квартирами,
-            приватними будинками, офісами, магазинами та комерційними приміщеннями.
-          </p>
         </div>
       </section>
 
@@ -223,16 +210,16 @@
             <p class="section-kicker">Контакти</p>
             <h2 id="contacts-title">Потрібен прорахунок або замір?</h2>
             <p>
-              Залиште заявку або зателефонуйте. Підкажемо, яке рішення краще підійде
+              Зателефонуйте. Підкажемо, яке рішення краще підійде
               для вашого будинку, офісу чи магазину.
             </p>
 
             <div class="contact-links">
-              <a href="tel:+380670000000">
+              <a href="tel:+380971049477">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.6a2 2 0 0 1-.45 2.11L8.09 9.64a16 16 0 0 0 6.27 6.27l1.21-1.2a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.6.63A2 2 0 0 1 22 16.92z" />
                 </svg>
-                +38 (067) 000 00 00
+                +38 (097) 104 94 77
               </a>
               <a href="mailto:viknoprostir@example.com">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -246,52 +233,48 @@
                   <path d="M12 21s7-4.35 7-11a7 7 0 0 0-14 0c0 6.65 7 11 7 11z" />
                   <path d="M12 10.5h.01" />
                 </svg>
-                м. Ваше місто, вул. Центральна, 12
+                м. Івано-Франківськ, вул. Коновальця, 146е
               </span>
             </div>
           </div>
 
-          <form class="contact-form" data-contact-form>
-            <label>
-              Ім’я
-              <input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" required />
-            </label>
-            <label>
-              Телефон
-              <input name="phone" type="tel" autocomplete="tel" placeholder="+38 (0__) ___ __ __" required />
-            </label>
-            <label>
-              Що цікавить
-              <select name="service" required>
-                <option value="">Оберіть послугу</option>
-                <option>Металопластикові вікна</option>
-                <option>Двері</option>
-                <option>Жалюзі</option>
-                <option>Ролети</option>
-                <option>Комплексне замовлення</option>
-              </select>
-            </label>
-            <label>
-              Коментар
-              <textarea name="message" rows="4" placeholder="Опишіть об’єкт або бажані розміри"></textarea>
-            </label>
-            <button class="button button-primary" type="submit">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M22 2 11 13" />
-                <path d="m22 2-7 20-4-9-9-4 20-7z" />
-              </svg>
-              Надіслати заявку
-            </button>
-            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-          </form>
+          <div class="map-card reveal" aria-label="Розташування Вікно простір на Google Maps">
+            <iframe
+              title="Вікно простір на Google Maps"
+              src="https://www.google.com/maps?q=%D0%86%D0%B2%D0%B0%D0%BD%D0%BE-%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D1%96%D0%B2%D1%81%D1%8C%D0%BA%2C%20%D0%B2%D1%83%D0%BB.%20%D0%9A%D0%BE%D0%BD%D0%BE%D0%B2%D0%B0%D0%BB%D1%8C%D1%86%D1%8F%2C%20146%D0%B5&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+            <div class="map-card-footer">
+              <span>м. Івано-Франківськ, вул. Коновальця, 146е</span>
+              <a
+                class="button button-primary map-button"
+                href="https://maps.app.goo.gl/42MGaLNxAzLMYNnu8"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21s7-4.35 7-11a7 7 0 0 0-14 0c0 6.65 7 11 7 11z" />
+                  <path d="M12 10.5h.01" />
+                </svg>
+                Відкрити маршрут
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <p>© <span data-year></span> Вікно простір. Усі права захищено.</p>
-      <p>Фото: Вікно простір</p>
     </footer>
+
+    <button class="back-to-top" type="button" data-back-to-top aria-label="Повернутися на початок">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m6 15 6-6 6 6" />
+      </svg>
+    </button>
 
     <script src="script.js"></script>
   </body>

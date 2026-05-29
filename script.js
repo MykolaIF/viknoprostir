@@ -2,17 +2,43 @@ const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector(".nav-toggle");
 const year = document.querySelector("[data-year]");
-const form = document.querySelector("[data-contact-form]");
-const formStatus = document.querySelector("[data-form-status]");
+const heroImage = document.querySelector("[data-random-hero]");
+const backToTop = document.querySelector("[data-back-to-top]");
 
 year.textContent = new Date().getFullYear();
 
 const syncHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 12);
+  backToTop?.classList.toggle("is-visible", window.scrollY > 360);
 };
 
 syncHeader();
 window.addEventListener("scroll", syncHeader, { passive: true });
+
+const probeImage = (src) =>
+  new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(src);
+    image.onerror = () => resolve(null);
+    image.src = src;
+  });
+
+const randomizeHeroImage = async () => {
+  if (!heroImage) return;
+
+  const candidates = Array.from({ length: 10 }, (_, index) => `assets/hero-vikno-prostir${index}.jpg`);
+  const availableImages = (await Promise.all(candidates.map(probeImage))).filter(Boolean);
+
+  if (!availableImages.length) return;
+
+  const currentSrc = heroImage.getAttribute("src");
+  const choices = availableImages.length > 1 ? availableImages.filter((src) => src !== currentSrc) : availableImages;
+  const nextSrc = choices[Math.floor(Math.random() * choices.length)];
+
+  heroImage.src = nextSrc;
+};
+
+randomizeHeroImage();
 
 navToggle.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("is-open");
@@ -28,6 +54,13 @@ nav.addEventListener("click", (event) => {
   navToggle.setAttribute("aria-expanded", "false");
   header.classList.remove("nav-active");
   document.body.classList.remove("nav-open");
+});
+
+backToTop?.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 
 const revealItems = document.querySelectorAll(".reveal");
@@ -48,22 +81,3 @@ if ("IntersectionObserver" in window) {
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const data = new FormData(form);
-  const name = data.get("name");
-  const phone = data.get("phone");
-  const service = data.get("service");
-  const message = data.get("message") || "Без коментаря";
-
-  const subject = encodeURIComponent(`Заявка з сайту: ${service}`);
-  const body = encodeURIComponent(
-    `Ім’я: ${name}\nТелефон: ${phone}\nПослуга: ${service}\nКоментар: ${message}`
-  );
-
-  formStatus.textContent = "Готово, відкриваю поштовий клієнт для відправки заявки.";
-  window.location.href = `mailto:viknoprostir@example.com?subject=${subject}&body=${body}`;
-  form.reset();
-});
